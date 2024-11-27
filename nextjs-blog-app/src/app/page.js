@@ -13,7 +13,7 @@ export default function Page() {
   };
 
   return (
-    <main style={{ padding: '20px', textAlign: 'center' }}>
+    <main style={{ padding: '30px', textAlign: 'center' }}>
       <AuthButtons />
       
       {/* Pass the handleBlogCreated function to CreateBlog component */}
