@@ -1,4 +1,6 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
+
 
 import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs';
 import { useState } from 'react';
@@ -56,7 +58,7 @@ export default function CreateBlog({ onBlogCreated }) {
     if (error) {
       setAlert({
         type: 'error',
-        message: `Error creating blog: ${error.message}`,
+        message: 'Error creating blog: ${error.message}',
       });
       setTimeout(() => setAlert(null), 3000);
     } else {

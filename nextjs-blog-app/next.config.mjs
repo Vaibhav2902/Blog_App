@@ -1,10 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.mjs
+export default {
     experimental: {
       serverComponentsExternalPackages: ['@clerk/nextjs'],
       edge: false, // Disable Edge Functions
     },
   };
-  
-  module.exports = nextConfig;
   
