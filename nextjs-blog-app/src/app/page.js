@@ -1,26 +1,34 @@
-'use client'
+'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthButtons from "@/components/AuthButton";
 import CreateBlog from "@/components/createBlog";
 import ViewBlogs from "@/components/BlogList";
 
 export default function Page() {
-  const [shouldFetch, setShouldFetch] = useState(true); // Flag to control fetching
+  const [message, setMessage] = useState("");
 
-  const handleBlogCreated = () => {
-    setShouldFetch(true); // Trigger re-fetch when a new blog is created
-  };
+  useEffect(() => {
+    // Fetch the message from the API
+    const fetchMessage = async () => {
+      const res = await fetch('/api/getPageData');
+      if (res.ok) {
+        const data = await res.json();
+        setMessage(data.message);
+      } else {
+        setMessage("Failed to load message");
+      }
+    };
+
+    fetchMessage();
+  }, []);
 
   return (
     <main style={{ padding: '30px', textAlign: 'center' }}>
       <AuthButtons />
-      
-      {/* Pass the handleBlogCreated function to CreateBlog component */}
-      <CreateBlog onBlogCreated={handleBlogCreated} />
-      
-      {/* Conditionally render ViewBlogs if shouldFetch is true */}
-      {shouldFetch && <ViewBlogs />}
+      <h1>{message}</h1> {/* Display the API message */}
+      <CreateBlog />
+      <ViewBlogs />
     </main>
   );
 }
