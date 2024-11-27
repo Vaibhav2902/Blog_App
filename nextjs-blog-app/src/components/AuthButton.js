@@ -17,7 +17,7 @@ export default function AuthButtons() {
       <div 
         style={{
           position: 'absolute', // Positioning relative to the viewport
-          top: '20px', // Space from the top of the screen
+          top: '30px', // Space from the top of the screen
           right: '20px', // Space from the right of the screen
         }}
       >
