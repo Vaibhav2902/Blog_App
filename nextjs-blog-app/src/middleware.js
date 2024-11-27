@@ -1,4 +1,6 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
+import crypto from 'crypto-browserify';
+
 
 export default clerkMiddleware();
 
