@@ -1,12 +1,10 @@
-// next.config.mjs
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-      serverComponentsExternalPackages: ['@clerk/nextjs'],  // Ensure this is used to allow Clerk's server-side components
+      serverComponentsExternalPackages: ['@clerk/nextjs'],
+      edge: false, // Disable Edge Functions for Clerk
     },
-    // The Edge runtime is disabled globally
-    target: 'server',  // Disables Edge functions, ensuring that your middleware runs in a Node.js runtime
   };
   
-  export default nextConfig;
+  module.exports = nextConfig;
   
