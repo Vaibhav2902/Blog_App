@@ -2,7 +2,7 @@
 const nextConfig = {
     experimental: {
       serverComponentsExternalPackages: ['@clerk/nextjs'],
-      edge: false, // Disable Edge Functions for Clerk
+      edge: false, // Disable Edge Functions
     },
   };
   
