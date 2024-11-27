@@ -15,11 +15,7 @@ export default function AuthButtons() {
 
       {/* Container for the Sign In / Sign Out button */}
       <div 
-        style={{
-          position: 'absolute', // Positioning relative to the viewport
-          top: '30px', // Space from the top of the screen
-          right: '20px', // Space from the right of the screen
-        }}
+        
       >
         {/* Shown only when the user is not signed in */}
         <SignedOut>
