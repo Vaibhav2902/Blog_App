@@ -1,32 +1,23 @@
-'use client';  // Add this line at the top to mark the file as a client component
+"use client";
 
-import { useState, useEffect } from 'react';
-import { ClerkProvider } from '@clerk/nextjs';
-import dynamic from 'next/dynamic';
-
-// Dynamically import ClerkProvider with SSR disabled
-const ClerkProviderWithNoSSR = dynamic(
-  () => import('@clerk/nextjs').then((mod) => mod.ClerkProvider),
-  { ssr: false }
-);
+import {
+  ClerkProvider,
+  SignedIn,
+  UserButton,
+} from "@clerk/nextjs";
+import "./globals.css";
+import { Inter } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import { Metadata } from "next";
 
 export default function RootLayout({ children }) {
-  const [isClient, setIsClient] = useState(false);
-
-  // This ensures that we only render client-specific content after the component mounts
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // Return nothing while the client-side code is loading
-  }
-
   return (
     <html lang="en">
-      <head />
       <body>
-        <ClerkProviderWithNoSSR>{children}</ClerkProviderWithNoSSR>
+        <ClerkProvider>
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );

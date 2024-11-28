@@ -132,6 +132,11 @@ export default function CreateBlog({ onBlogCreated }) {
       </SignedIn>
       <SignedOut>
         <div>Please sign in to create a blog.</div>
+        <SignInButton>
+            <Button style={{ backgroundColor: 'green', padding: '8px 16px', cursor: 'pointer' }}>
+              Sign In
+            </Button>
+          </SignInButton>
       </SignedOut>
     </div>
   );

@@ -41,7 +41,6 @@ export default function Page() {
 
   return (
     <main style={{ padding: '30px', textAlign: 'center' }}>
-      <AuthButtons /> {/* AuthButtons component for authentication */}
       
       {/* Display the message fetched from API */}
       <h1>{message}</h1>
