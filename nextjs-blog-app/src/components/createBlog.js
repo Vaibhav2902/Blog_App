@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 
-import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton,SignOutButton, useUser } from '@clerk/nextjs';
 import { useState } from 'react';
 import supabase from '@/lib/supabaseClient';
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "@/components/ui/alert";
+import { AlignEndHorizontal } from 'lucide-react';
 
 export default function CreateBlog({ onBlogCreated }) {
   const [title, setTitle] = useState('');
@@ -83,6 +84,11 @@ export default function CreateBlog({ onBlogCreated }) {
   return (
     <div style={{ border: '2px solid black', padding: '20px', margin: '10px auto', maxWidth: '600px' }}>
       <SignedIn>
+      <SignOutButton>
+            <Button style={{ backgroundColor: 'Red', padding: '8px 16px', cursor: 'pointer' }}>
+              Sign Out
+            </Button>
+          </SignOutButton>
         <h2>Create a New Blog</h2>
         {/* Display alert if set */}
         {alert && (
